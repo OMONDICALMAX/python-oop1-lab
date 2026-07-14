@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 
 class Coffee:
-    def __init__(self):
-        while True:
-            self.size = input("Enter size (Small, Medium, or Large): ").capitalize()
+    def __init__(self, size, price):
+        self.size = size
+        self.price = price
 
-            if self.size in ("Small", "Medium", "Large"):
-                break
+    @property
+    def size(self):
+        return self._size
 
+    @size.setter
+    def size(self, value):
+        if value in ("Small", "Medium", "Large"):
+            self._size = value
+        else:
             print("size must be Small, Medium, or Large")
 
-        self.price = float(input("Enter the coffee price: "))
-
     def tip(self):
-        print("This coffee is great, here's a tip!")
+        print("This coffee is great, here’s a tip!")
         self.price += 1
