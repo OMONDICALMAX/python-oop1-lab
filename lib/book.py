@@ -1,19 +1,14 @@
+#!/usr/bin/env python3
 class Book:
-    def __init__(self, title, page_count):
-        self.title = title
-        self.page_count = page_count
+    def __init__(self):
+        self.title = input("Enter the book title: ")
 
+        while True:
+            try:
+                self.page_count = int(input("Enter the page count: "))
+                break
+            except ValueError:
+                print("page_count must be an integer")
 
-title = input("What is the title of the book you want to read today? ")
-
-while True:
-    try:
-        page_count = int(input("What page do you want to jump to? "))
-        break
-    except ValueError:
-        print("Page count must be an integer!")
-
-book1 = Book(title, page_count)
-
-print(book1.title)
-print(book1.page_count)
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
